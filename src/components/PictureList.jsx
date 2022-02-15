@@ -47,7 +47,7 @@ const PictureList = ({ pictures }) => {
 
     return (
         <Content>
-            {pictures.map((x, i) => <Picture image={x} />)}
+            {pictures.map((x, index) => <Picture image={x} key={index} />)}
         </Content>
     );
 };

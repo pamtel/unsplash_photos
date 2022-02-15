@@ -45,8 +45,8 @@ export default function ModalUnstyledDemo({ open, setOpen, image }) {
       >
         <Box sx={style}>
           <img src={image.urls.full} alt="pics" className="modal-image" />
-          <h2>{image.user.name}</h2>
-          <p>{image.user.location}</p>
+          <h3 className="modal-name">{image.user.name}</h3>
+          <p className="modal-location">{image.user.location}</p>
         </Box>
       </StyledModal>
     </div>

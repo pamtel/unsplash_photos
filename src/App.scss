@@ -61,9 +61,17 @@
     padding-top: 2rem;
   }
 }
+
 .modal-image {
   width: 100%;
 }
+.modal-name {
+  padding: 0 5px;
+}
+.modal-location {
+  padding: 0 5px;
+}
+
 @media screen and (max-width: 700px) {
   .header {
     max-width: 400px;
