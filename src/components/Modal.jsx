@@ -1,30 +1,54 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { styled, Box } from "@mui/system";
+import ModalUnstyled from "@mui/base/ModalUnstyled";
 
-// const style = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   width: '100%',
-//   bgcolor: "background.paper",
-//   border: "2px solid #000",
-//   boxShadow: 24,
-//   p: 4,
-// };
+const StyledModal = styled(ModalUnstyled)`
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-const Modal = ({ open, image }) => {
-  return (
-    <>
-    {open && <div>
-      <img src={image.urls.thumb} alt="pics" />
-      <p className="username">{image.user.name}</p>
-      <p className="location">{image.user.location}</p>
-    </div>
-    }
-    </>
-  );
+const Backdrop = styled("div")`
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
+
+const style = {
+  width: 400,
+  bgcolor: "#fff",
+  pb: 3,
 };
 
-export default Modal;
+export default function ModalUnstyledDemo({ open, setOpen, image }) {
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  return (
+    <div onClick={handleOpen}>
+      <StyledModal
+        aria-labelledby="unstyled-modal-title"
+        aria-describedby="unstyled-modal-description"
+        open={open}
+        onClose={handleClose}
+        BackdropComponent={Backdrop}
+      >
+        <Box sx={style}>
+          <img src={image.urls.full} alt="pics" className="modal-image" />
+          <h2>{image.user.name}</h2>
+          <p>{image.user.location}</p>
+        </Box>
+      </StyledModal>
+    </div>
+  );
+}
