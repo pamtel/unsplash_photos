@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.app {
+  display: flex;
+  padding-top: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  background-color: #dde2e9;
+  padding: 10px 30px;
+}
+.input {
+  padding: 15px 20px;
+  position: relative;
+  width: 700px;
+}
+.card {
+  padding: 5px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+.result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  padding: 1.5rem;
+  width: auto;
+  height: auto;
+  img {
+    flex-wrap: nowrap;
+    margin: 5px;
+  }
+}
+.username {
+  width: 200px;
+}
+@media screen and (max-width: 700px) {
+  .result {
+    display: flex;
+    flex-direction: column;
+  }
+}
